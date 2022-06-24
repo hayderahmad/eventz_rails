@@ -2,7 +2,8 @@
     <% @events.each do |event|%>
         <section class="event">
             <div class="summary">
-                <h2><%=link_to event.name, event_path(event)%></h2>
+                
+                <%= image_tag event.image_file_name%> <h2><%=link_to event.name, event_path(event)%></h2>
                 <h3><%= day_and_time(event) %>in <%=event.location%>:</h3>
                 <span class= "price">
                     <%=price(event)%>
@@ -18,3 +19,7 @@
         </section>
     <%end%>
 
+<section class="admin">
+    <%= link_to "Add new Event", new_event_path, class: "button"%>
+
+</section>

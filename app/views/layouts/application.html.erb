@@ -11,20 +11,11 @@
   </head>
 
   <body>
-    <header>
-      <nav>
-        <%=link_to image_tag("logo"), root_path%>
-        <ul>
-          <li>
-            <%= link_to "All Events", events_path%>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <%= render "layouts/header"%>
     
       <div class= "content">
         <%= yield %>
       </div>
-    <footer>Made by Haider</footer>
+    <%= render "layouts/footer"%>
   </body>
 </html>

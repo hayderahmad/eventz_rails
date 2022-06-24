@@ -1,15 +1,2 @@
-
-<%=form_with(model: @event, local: true) do |f|%>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.label :description %>
-    <%= f.text_area :description, rows: 5 %>
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-    <%= f.label :price %>
-    <%= f.number_field :price %>
-    <%= f.label :strarts_at %>
-    <%= f.datetime_select :starts_at, {ampm: true}, {class: "datetime"} %>
-    <%= f.submit%>
-
-<%end%>
+<h1>Editing <%= @event.name%></h1>
+<%= render "form", event: @event%>
