@@ -13,13 +13,19 @@
         <p>
             <%=@event.description%>
         </p>
+        <div class="registration">
+        <%= register_or_sold_out(@event)%>
+        <p>
+        <%= link_to "who is registered?", event_registrations_path(@event)%>
+        </p>
+        </div>
     </div>
 </section>
-<section class= "admin">
-    <%= link_to "Edit", edit_event_path(@event), class: "button"%>
-    <%= link_to "Delete", @event, class: "button", method: :delete, data: { confirm: "Really?!"}%>
-    <%= link_to "Destroy", event_path(@event), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %>
-</section>
+
+<%if current_user && current_user.admin?%>
+    <section class= "admin">
+        <%= link_to "Edit", edit_event_path(@event), class: "button"%>
+        <%= button_to "Delete", @event, class: "button", method: :delete, data: { confirm: "Really?!"}%>
+        
+    </section>
+<%end%>
