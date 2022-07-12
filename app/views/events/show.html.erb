@@ -1,6 +1,18 @@
 <section class="event-details">
             <div class="image">
                 <%= image_tag @event.image_file_name%>
+                <%if current_user%>
+                    <div class="like">
+                    <%if @like%>
+                        <%= button_to "# Dislike", event_like_path(@event, @like), method: :delete%>
+                    <%else%>
+                        <%= button_to "# Like", event_likes_path(@event)%>
+                    <%end%>
+                        <div class="counter">
+                            <%= @likers.size%>
+                        </div>
+                    </div>
+                <%end%>
             </div>
     <div calss="details">
         <h1><%=@event.name%></h1>
@@ -29,3 +41,25 @@
         
     </section>
 <%end%>
+<aside>
+    <%if @likers.present?%>
+        <h4>Liked By</h4>
+        <ul>
+            <% @likers.each do |user|%>
+                <li>
+                <%= link_to user.name, user%>
+                </li>
+            <%end%>
+        </ul>
+    <%end%>
+    <%if @categories.present?%>
+        <h4>Categories</h4>
+        <ul>
+        <%@categories.each do |c|%>
+        <li><%= c.name%></li>
+        <%end%>
+        </ul>
+    <%end%>
+
+
+</aside>

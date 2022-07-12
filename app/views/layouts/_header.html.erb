@@ -3,7 +3,16 @@
     <%= link_to image_tag("logo"), root_path %>
     <ul class="left">
       <li>
-        <%= link_to "All Events", root_path %>
+        <%= link_to "Upcoming Events", filtered_events_path(:upcoming) %>
+      </li>
+      <li>
+        <%= link_to "Free Events", filtered_events_path(:free) %>
+      </li>
+      <li>
+        <%= link_to "Recent Events", filtered_events_path(:recent) %>
+      </li>
+      <li>
+        <%= link_to "Past Events", filtered_events_path(:past) %>
       </li>
     </ul>
     <ul class="right">
