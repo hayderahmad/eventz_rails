@@ -15,7 +15,6 @@
     <%= f.label :image_file_name %>
     <%= f.text_field :image_file_name %>
     <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name )%>
-
     <%= f.submit%>
 
 <%end%>
